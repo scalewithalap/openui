@@ -1,0 +1,57 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Project {
+  id              String   @id @default(cuid())
+  name            String
+  description     String?
+  projectNumber   Int
+  thumbnail       String?
+  sketchesData    String   @default("{}") // JSON blob of Redux shapes state
+  viewportData    String?  // JSON blob of viewport state
+  styleGuide      String?  // JSON blob of AI-generated style guide
+  isPublic        Boolean  @default(false)
+  tags            String?  // JSON array serialized as string
+  lastModified    DateTime @updatedAt
+  createdAt       DateTime @default(now())
+
+  moodBoardImages   MoodBoardImage[]
+  inspirationImages InspirationImage[]
+  settings          ProjectSettings?
+}
+
+model MoodBoardImage {
+  id        String   @id @default(cuid())
+  projectId String
+  filePath  String   // Relative path under data/uploads/moodboard/
+  fileName  String
+  mimeType  String
+  createdAt DateTime @default(now())
+
+  project Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+}
+
+model InspirationImage {
+  id        String   @id @default(cuid())
+  projectId String
+  filePath  String   // Relative path under data/uploads/inspiration/
+  fileName  String
+  mimeType  String
+  createdAt DateTime @default(now())
+
+  project Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+}
+
+model ProjectSettings {
+  id        String  @id @default(cuid())
+  projectId String  @unique
+  provider  String? // "openrouter" | "nvidia" | "ollama" | "anthropic" | "openai" | "google"
+  model     String? // Full model ID e.g. "anthropic/claude-opus-4"
+
+  project Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+}

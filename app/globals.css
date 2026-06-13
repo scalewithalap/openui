@@ -1,0 +1,181 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: "DM Sans", sans-serif;
+  --font-heading: "Host Grotesk", sans-serif;
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --radius: 0.75rem;
+  --background: oklch(0.982 0.006 75); /* warm cream #faf8f5 */
+  --foreground: oklch(0.25 0.012 50); /* charcoal #2e2925 */
+  --card: oklch(1 0 0); /* pure white */
+  --card-foreground: oklch(0.25 0.012 50);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.25 0.012 50);
+  --primary: oklch(57.46% 0.216 32.29);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.952 0.008 70); /* light warm grey-cream #f1ede4 */
+  --secondary-foreground: oklch(0.25 0.012 50);
+  --muted: oklch(0.952 0.008 70);
+  --muted-foreground: oklch(0.55 0.012 60); /* medium grey-brown #7e746b */
+  --accent: oklch(0.952 0.008 70);
+  --accent-foreground: oklch(0.25 0.012 50);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.92 0.01 70); /* soft border #e7e1d4 */
+  --input: oklch(0.92 0.01 70);
+  --ring: oklch(0.6 0.18 45);
+  --chart-1: oklch(0.6 0.18 45);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.975 0.006 75); /* warm off-white #f6f3ed */
+  --sidebar-foreground: oklch(0.25 0.012 50);
+  --sidebar-primary: oklch(0.6 0.18 45);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.94 0.01 70); /* #ece6da */
+  --sidebar-accent-foreground: oklch(0.25 0.012 50);
+  --sidebar-border: oklch(0.91 0.01 70); /* #e3dcd0 */
+  --sidebar-ring: oklch(0.6 0.18 45);
+  --canvas-grid: rgba(46, 41, 37, 0.12);
+}
+
+.dark {
+  --background: oklch(0.22 0.012 50); /* dark cocoa-brown #251f1c */
+  --foreground: oklch(0.95 0.006 75); /* warm off-white #f7f4f0 */
+  --card: oklch(0.26 0.012 50); /* cocoa card #2f2723 */
+  --card-foreground: oklch(0.95 0.006 75);
+  --popover: oklch(0.26 0.012 50);
+  --popover-foreground: oklch(0.95 0.006 75);
+  --primary: oklch(68.76% 0.204 34.03);
+  --primary-foreground: oklch(0% 0 0);
+  --secondary: oklch(0.32 0.012 50); /* dark cocoa secondary #3b322d */
+  --secondary-foreground: oklch(0.95 0.006 75);
+  --muted: rgb(56, 49, 45);
+  --muted-foreground: oklch(0.7 0.008 60); /* #b2a89f */
+  --accent: oklch(0.32 0.012 50);
+  --accent-foreground: oklch(0.95 0.006 75);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(0.3 0.012 50 / 60%); /* #362e2a */
+  --input: oklch(0.3 0.012 50 / 60%);
+  --ring: oklch(0.63 0.17 45);
+  --chart-1: oklch(0.63 0.17 45);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.24 0.012 50); /* #2a221f */
+  --sidebar-foreground: oklch(0.95 0.006 75);
+  --sidebar-primary: oklch(0.63 0.17 45);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.3 0.012 50);
+  --sidebar-accent-foreground: oklch(0.95 0.006 75);
+  --sidebar-border: oklch(0.3 0.012 50 / 60%);
+  --sidebar-ring: oklch(0.63 0.17 45);
+  --canvas-grid: rgba(247, 244, 240, 0.08);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: "DM Sans", sans-serif;
+  }
+  input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+  }
+  input[type="color"]::-webkit-color-swatch {
+    border: none;
+    border-radius: 50%;
+  }
+  input[type="color"]::-moz-color-swatch {
+    border: none;
+    border-radius: 50%;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Host Grotesk", sans-serif;
+  }
+}
+
+.cursor-eraser,
+.cursor-eraser * {
+  cursor:
+    url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiMwMDAwMDAiIHN0cm9rZS13aWR0aD0iMi41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxwYXRoIGQ9Im03IDIxLTQuMy00LjNjLTEtMS0xLTIuNSAwLTMuNGw5LjYtOS42YzEtMSAyLjUtMSAzLjQgMGw1LjYgNS42YzEgMSAxIDIuNSAwIDMuNEwxMyAyMSIgZmlsbD0iI2ZmZmZmZiIvPjxwYXRoIGQ9Ik0yMiAyMUg3Ii8+PHBhdGggZD0ibTUgMTEgOSA5Ii8+PC9zdmc+")
+      6 18,
+    auto !important;
+}
+
+@keyframes marching-ants {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 8;
+  }
+}
+
+.animate-marching-ants {
+  stroke-dasharray: 4 4;
+  animation: marching-ants 0.3s linear infinite;
+}
+
+@keyframes connector-flow {
+  0% {
+    stroke-dashoffset: 24;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-connector-flow {
+  stroke-dasharray: 8 4;
+  animation: connector-flow 0.8s linear infinite;
+}
